@@ -1,0 +1,22 @@
+import { reactive, readonly } from 'vue'
+import { LocalStorage, Notify, Loading } from 'quasar'
+import {http} from 'boot/axios'
+
+const state = reactive({
+})
+
+const methods = {
+    loadingBtn() {
+        state.loading = true
+    }
+}
+
+const getters = {
+
+}
+
+export default {
+    state: readonly(state),
+    methods,
+    getters
+}
