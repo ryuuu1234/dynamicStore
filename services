@@ -1,0 +1,25 @@
+import axios from 'axios';
+import store from '../store';
+// axios.defaults.withCredentials = true;
+
+export function http() {
+    return axios.create({
+        baseURL: store.state.apiURL,
+        // timeout: 5000,
+        headers: {
+            Authorization   : localStorage.getItem('token') != 'null' ? 'Bearer ' + localStorage.getItem('token'):'',
+            'Content-Type'  : 'application/json'
+        }
+    });
+}
+
+export function httpFile() {
+    return axios.create({
+        baseURL: store.state.apiURL,
+        // timeout: 5000,
+        headers: {
+            Authorization: localStorage.getItem('token') != 'null' ? 'Bearer ' + localStorage.getItem('token'):'',
+            'Content-Type': 'multipart/form-data'
+        }
+    });
+}
